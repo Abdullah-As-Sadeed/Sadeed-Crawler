@@ -12,11 +12,11 @@ $html = '';
 if (isset($_POST['crawl'])) {
   if (isset($_POST['url_starting_part']) && isset($_POST['url_ending_part']) && isset($_POST['lower_limit']) && isset($_POST['upper_limit'])) {
     if (!empty($_POST['url_starting_part']) && !empty($_POST['url_ending_part']) && !empty($_POST['lower_limit']) && !empty($_POST['upper_limit'])) {
-      $url_starting_part = filter_input(INPUT_POST, 'url_starting_part', FILTER_SANITIZE_STRING);
-      $url_ending_part = filter_input(INPUT_POST, 'url_ending_part', FILTER_SANITIZE_STRING);
+      $url_starting_part = filter_input(INPUT_POST, 'url_starting_part', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+      $url_ending_part = filter_input(INPUT_POST, 'url_ending_part', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-      $lower_limit = filter_input(INPUT_POST, 'lower_limit', FILTER_SANITIZE_STRING);
-      $upper_limit = filter_input(INPUT_POST, 'upper_limit', FILTER_SANITIZE_STRING);
+      $lower_limit = filter_input(INPUT_POST, 'lower_limit', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+      $upper_limit = filter_input(INPUT_POST, 'upper_limit', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
       $lower_limit = intval($lower_limit);
       $upper_limit = intval($upper_limit);
